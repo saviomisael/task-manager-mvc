@@ -1,0 +1,21 @@
+CREATE DATABASE TaskManagerDB;
+
+USE TaskManagerDB;
+
+CREATE TABLE Category(
+	CategoryID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	NameCategory VARCHAR(50) NOT NULL
+);
+GO
+
+CREATE TABLE Task(
+	TaskID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	CategoryFK INT NOT NULL,
+	NameTask VARCHAR(50) NOT NULL,
+	PriorityTask INT NOT NULL,
+	DescriptionTask VARCHAR(MAX) NOT NULL,
+	DateTask DATETIME2 NOT NULL,
+
+	CONSTRAINT category_fk FOREIGN KEY (CategoryFK) REFERENCES Category(CategoryID)
+);
+GO
