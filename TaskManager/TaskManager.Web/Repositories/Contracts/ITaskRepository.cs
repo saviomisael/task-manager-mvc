@@ -5,7 +5,7 @@ using TaskManager.Web.Models;
 
 namespace TaskManager.Web.Repositories.Contracts
 {
-    interface ITaskRepository
+    public interface ITaskRepository
     {
         bool CreateTask(Task task);
     }
