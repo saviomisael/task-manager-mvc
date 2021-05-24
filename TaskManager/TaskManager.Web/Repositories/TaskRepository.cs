@@ -34,11 +34,14 @@ namespace TaskManager.Web.Repositories
                                                         @PriorityTask, 
                                                         @DescriptionTask, 
                                                         @DateTask)",
-                                                    new { task.CategoryFK, 
-                                                        task.NameTask, 
-                                                        task.PriorityTask, 
-                                                        task.DescriptionTask, 
-                                                        task.DateTask });
+                                                    new
+                                                    {
+                                                        task.CategoryFK,
+                                                        task.NameTask,
+                                                        task.PriorityTask,
+                                                        task.DescriptionTask,
+                                                        task.DateTask
+                                                    });
 
                 if (affectedRows > 0)
                 {
