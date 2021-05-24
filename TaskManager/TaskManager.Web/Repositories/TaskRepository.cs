@@ -22,9 +22,25 @@ namespace TaskManager.Web.Repositories
 
             using (var connection = new SqlConnection(_connectionString))
             {
-                var affectedRows = connection.Execute("INSERT INTO Task(CategoryFK, NameTask, PriorityTask, DescriptionTask, DateTask) VALUES(@CategoryFK, @NameTask, @PriorityTask, @DescriptionTask, @DateTask)", new { task.CategoryFK, task.NameTask, task.PriorityTask, task.DescriptionTask, task.DateTask });
+                var affectedRows = connection.Execute(@"INSERT INTO Task(
+                                                        CategoryFK, 
+                                                        NameTask, 
+                                                        PriorityTask, 
+                                                        DescriptionTask, 
+                                                        DateTask) 
+                                                        VALUES(
+                                                        @CategoryFK, 
+                                                        @NameTask, 
+                                                        @PriorityTask, 
+                                                        @DescriptionTask, 
+                                                        @DateTask)",
+                                                    new { task.CategoryFK, 
+                                                        task.NameTask, 
+                                                        task.PriorityTask, 
+                                                        task.DescriptionTask, 
+                                                        task.DateTask });
 
-                if(affectedRows > 0)
+                if (affectedRows > 0)
                 {
                     return true;
                 }
