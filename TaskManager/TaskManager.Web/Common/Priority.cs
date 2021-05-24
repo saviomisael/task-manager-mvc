@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace TaskManager.Web.Common
 {
@@ -7,7 +8,7 @@ namespace TaskManager.Web.Common
         public int PriorityId { get; set; }
         public string NamePriority { get; set; }
 
-        public static IEnumerable<Priority> ReturnPrioritiesForViewModel()
+        public static SelectList ReturnPrioritiesForSelectList()
         {
             var priorities = new List<Priority>();
 
@@ -29,7 +30,7 @@ namespace TaskManager.Web.Common
                 NamePriority = "Grande"
             });
 
-            return priorities;
+            return new SelectList(priorities, "PriorityId", "NamePriority");
         }
     }
 }

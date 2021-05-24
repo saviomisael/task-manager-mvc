@@ -39,9 +39,7 @@ namespace TaskManager.Web.ViewModels
 
         public CreateTaskViewModel()
         {
-            Priorities = new SelectList(Priority.ReturnPrioritiesForViewModel(), 
-                                        "PriorityId", 
-                                        "NamePriority");
+            Priorities = Priority.ReturnPrioritiesForSelectList();
         }
     }
 }
