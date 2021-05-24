@@ -1,8 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Dapper;
+using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 using TaskManager.Web.Models;
 using TaskManager.Web.Repositories.Contracts;
 
@@ -19,7 +17,13 @@ namespace TaskManager.Web.Repositories
 
         public int CreateCategory(Category category)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                return connection.ExecuteScalar<int>(@"INSERT INTO Category(NameCategory) 
+                                                        VALUES(@NameCategory);
+                                                        SELECT SCOPE_IDENTITY() as 'lastCategory'",
+                    new { NameCategory = category.NameCategory });
+            }
         }
     }
 }
