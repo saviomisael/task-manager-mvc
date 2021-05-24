@@ -10,5 +10,7 @@ namespace TaskManager.Web.Models
         public int PriorityTask { get; set; }
         public string DescriptionTask { get; set; }
         public DateTime DateTask { get; set; }
+
+        public Category Category { get; set; }
     }
 }
