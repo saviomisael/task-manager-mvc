@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using TaskManager.Web.Common;
 
 namespace TaskManager.Web.ViewModels
 {
@@ -38,12 +39,9 @@ namespace TaskManager.Web.ViewModels
 
         public CreateTaskViewModel()
         {
-            var prioritiesList = new Dictionary<string, int>();
-            prioritiesList.Add("Pequena", 1);
-            prioritiesList.Add("Média", 2);
-            prioritiesList.Add("Grande", 3);
-
-            Priorities = new SelectList(prioritiesList);
+            Priorities = new SelectList(Priority.ReturnPrioritiesForViewModel(), 
+                                        "PriorityId", 
+                                        "NamePriority");
         }
     }
 }
