@@ -1,10 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TaskManager.Web.Repositories.Contracts;
 
 namespace TaskManager.Web.Repositories
@@ -22,6 +18,19 @@ namespace TaskManager.Web.Repositories
 
         public bool CreateTask(Models.Task task)
         {
+            task.CategoryFK = _categoryRepository.CreateCategory(task.Category);
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var affectedRows = connection.Execute("INSERT INTO Task(CategoryFK, NameTask, PriorityTask, DescriptionTask, DateTask) VALUES(@CategoryFK, @NameTask, @PriorityTask, @DescriptionTask, @DateTask)", new { task.CategoryFK, task.NameTask, task.PriorityTask, task.DescriptionTask, task.DateTask });
+
+                if(affectedRows > 0)
+                {
+                    return true;
+                }
+
+                return false;
+            }
         }
     }
 }
