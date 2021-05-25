@@ -2,14 +2,25 @@
 <html lang="pt-br">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, height=device-height , initial-scale=1.0" />
     <title>@ViewData["Title"] - Task Manager</title>
+    <link rel="stylesheet" href="@Url.Content("~/css/reset.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/css/layout.min.css")" />
     @RenderSection("Styles", required: false)
 </head>
 <body>
+    <header class="header">
+        <a class="home-link" href="/">
+            <h2>Gerenciador de Tarefas</h2>
+        </a>
+    </header>
     <main>
         @RenderBody()
     </main>
+
+    <footer class="footer">
+        <h2 class="footer-description">Desenvolvido por Savio Moreira</h2>
+    </footer>
 
     @RenderSection("Scripts", required: false)
 </body>

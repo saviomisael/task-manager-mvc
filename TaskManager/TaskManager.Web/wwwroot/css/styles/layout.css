@@ -1,1 +1,50 @@
-﻿
+﻿:root {
+    font-size: 62.5%;
+    --color-first: #E63946;
+    --color-second: #457B9D;
+    --color-second-dark: #1D3557;
+    --color-second-light: #A8DADC;
+    --color-white: #F1FAEE;
+}
+
+body {
+    width: 100vw;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+}
+
+.header {
+    background-color: var(--color-first);
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .header > .home-link > h2 {
+        font-size: 2rem;
+        color: var(--color-white);
+        text-align: center;
+    }
+
+.footer {
+    background-color: var(--color-first);
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.footer .footer-description {
+    font-size: 2rem;
+    color: var(--color-white);
+    text-align: center;
+}
