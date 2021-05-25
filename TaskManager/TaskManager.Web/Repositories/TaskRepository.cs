@@ -24,23 +24,23 @@ namespace TaskManager.Web.Repositories
             {
                 var affectedRows = connection.Execute(@"INSERT INTO Task(
                                                         CategoryFK, 
-                                                        NameTask, 
-                                                        PriorityTask, 
-                                                        DescriptionTask, 
-                                                        DateTask) 
+                                                        TaskName, 
+                                                        TaskPriority, 
+                                                        TaskDescription, 
+                                                        TaskDate) 
                                                         VALUES(
                                                         @CategoryFK, 
-                                                        @NameTask, 
-                                                        @PriorityTask, 
-                                                        @DescriptionTask, 
-                                                        @DateTask)",
+                                                        @TaskName, 
+                                                        @TaskPriority, 
+                                                        @TaskDescription, 
+                                                        @TaskDate)",
                                                     new
                                                     {
                                                         task.CategoryFK,
-                                                        task.NameTask,
-                                                        task.PriorityTask,
-                                                        task.DescriptionTask,
-                                                        task.DateTask
+                                                        task.TaskName,
+                                                        task.TaskPriority,
+                                                        task.TaskDescription,
+                                                        task.TaskDate
                                                     });
 
                 if (affectedRows > 0)
