@@ -16,8 +16,11 @@ a {
     text-decoration: none;
 }
 
-.header {
+.bg-color-first {
     background-color: var(--color-first);
+}
+
+.header {
     width: 100vw;
     height: 15vh;
     display: flex;
@@ -32,7 +35,6 @@ a {
     }
 
 .footer {
-    background-color: var(--color-first);
     height: 10vh;
     display: flex;
     justify-content: center;
