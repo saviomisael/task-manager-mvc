@@ -6,7 +6,7 @@ const minifyCSS = () => {
     return src("wwwroot/css/styles/*.css")
         .pipe(cleanCSS())
         .pipe(rename({ extname: ".min.css" }))
-        .pipe(dest("wwroot/css/"));
+        .pipe(dest("wwwroot/css/"));
 }
 
 const defaultTask = () => {
