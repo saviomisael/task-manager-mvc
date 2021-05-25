@@ -5,8 +5,8 @@ namespace TaskManager.Web.Common
 {
     public class Priority
     {
-        public int PriorityId { get; set; }
-        public string NamePriority { get; set; }
+        public int PriorityId { get; private set; }
+        public string NamePriority { get; private set; }
 
         public static SelectList ReturnPrioritiesForSelectList()
         {
