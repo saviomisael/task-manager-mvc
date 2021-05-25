@@ -8,7 +8,7 @@ using TaskManager.Web.ViewModels;
 
 namespace TaskManager.Web.Controllers
 {
-    [Route("[controller]")]
+    [Route("tarefas")]
     public class TaskController : Controller
     {
         private readonly ITaskRepository _taskRepository;
