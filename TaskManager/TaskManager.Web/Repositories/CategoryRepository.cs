@@ -19,10 +19,10 @@ namespace TaskManager.Web.Repositories
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                return connection.ExecuteScalar<int>(@"INSERT INTO Category(NameCategory) 
+                return connection.ExecuteScalar<int>(@"INSERT INTO Category(CategoryName) 
                                                         VALUES(@NameCategory);
                                                         SELECT SCOPE_IDENTITY() as 'lastCategory'",
-                    new { NameCategory = category.NameCategory });
+                    new { NameCategory = category.CategoryName });
             }
         }
     }
