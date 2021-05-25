@@ -1,7 +1,6 @@
-﻿const { series, src, dest, watch } = require("gulp");
+﻿const { src, dest, watch } = require("gulp");
 const cleanCSS = require("gulp-clean-css");
 const rename = require("gulp-rename");
-const gulpRename = require("gulp-rename");
 
 const minifyCSS = () => {
     return src("wwwroot/css/styles/*.css")
