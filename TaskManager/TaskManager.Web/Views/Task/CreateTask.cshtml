@@ -1,5 +1,54 @@
-﻿@{ 
+﻿@model CreateTaskViewModel
+
+@{
     ViewData["Title"] = "Criar tarefa";
 }
 
-<h1>Criar tarefa</h1>
+@section Styles {
+    <link rel="stylesheet" href="@Url.Content("~/css/create_task_page.min.css")" />
+}
+
+<div id="create-task-page">
+    <nav>
+        <a class="home-link" href="@Url.Action("Index", "Home")">Voltar</a>
+    </nav>
+
+    <form name="form-create-task" asp-action="CreateTask" method="post">
+        <h2>Inserir nova tarefa</h2>
+
+        <div id="form-container">
+
+            <div class="input-wrapper">
+                <label asp-for="TaskName"></label>
+                <input asp-for="TaskName" type="text" minlength="3" maxlength="50" />
+                <span asp-validation-for="TaskName"></span>
+            </div>
+
+            <div class="input-wrapper">
+                <label asp-for="TaskPriority"></label>
+                <select asp-for="TaskPriority" asp-items="Model.Priorities"></select>
+                <span asp-validation-for="TaskName"></span>
+            </div>
+
+            <div class="input-wrapper">
+                <label asp-for="TaskDescription"></label>
+                <textarea asp-for="TaskDescription" minlength="3" maxlength="8000"></textarea>
+                <span asp-validation-for="TaskDescription"></span>
+            </div>
+
+            <div class="input-wrapper">
+                <label asp-for="TaskDate"></label>
+                <input asp-for="TaskDate" type="date" />
+                <span asp-validation-for="TaskDate"></span>
+            </div>
+
+            <div class="input-wrapper">
+                <label asp-for="CategoryName"></label>
+                <input asp-for="CategoryName" type="text" minlength="3" maxlength="50" />
+                <span asp-validation-for="CategoryName"></span>
+            </div>
+
+            <input type="submit" value="Salvar tarefa" />
+        </div>
+    </form>
+</div>

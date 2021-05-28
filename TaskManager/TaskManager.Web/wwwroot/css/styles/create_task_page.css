@@ -1,1 +1,90 @@
-﻿
+﻿#create-task-page {
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+}
+
+#create-task-page > nav {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 2rem;
+}
+
+    #create-task-page > nav > .home-link {
+        border-radius: .3rem;
+        font-size: 1.8rem;
+        padding: 0.3rem 1.5rem;
+        background-color: var(--color-second-dark);
+        color: var(--color-second-light);
+        font-weight: bold;
+    }
+
+#create-task-page form[name="form-create-task"] {
+    background-color: var(--color-second-light);
+    width: 80vw;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--color-second) -1.2rem 1.2rem;
+}
+
+    #create-task-page form[name="form-create-task"] > h2 {
+        text-align: center;
+        background-color: var(--color-second-dark);
+        border-radius: .5rem .5rem 0 0;
+        padding-top: 1rem;
+        font-size: 2rem;
+        color: var(--color-second-light);
+    }
+
+    #create-task-page form[name="form-create-task"] > #form-container {
+        background-color: var(--color-second-dark);
+        padding: 1rem .5rem;
+        border-radius: 0 0 .5rem .5rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+        #create-task-page form[name="form-create-task"] > #form-container > .input-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            margin: auto;
+            padding: .4rem;
+        }
+
+#create-task-page #form-container > .input-wrapper > label {
+    color: var(--color-second-light);
+    font-size: 1.8rem;
+    margin-bottom: .4rem;
+}
+
+#create-task-page #form-container > .input-wrapper > input
+#create-task-page #form-container > .input-wrapper > textarea,
+#create-task-page #form-container > .input-wrapper > select {
+    margin-bottom: .4rem;
+    border: none;
+    padding: .2rem .5rem;
+    border-radius: .2rem;
+}
+
+#create-task-page #form-container > .input-wrapper > textarea {
+    resize: none;
+}
+
+#create-task-page #form-container > input[type="submit"] {
+    background-color: var(--color-second);
+    border: none;
+    border-radius: .2rem;
+    padding: 1rem 1.7rem;
+    color: var(--color-white);
+    font-weight: bold;
+    width: 80%;
+    margin: 1rem auto;
+    text-transform: uppercase;
+}
+
+.footer {
+    position: static;
+}
