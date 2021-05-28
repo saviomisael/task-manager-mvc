@@ -36,17 +36,20 @@
                 <span asp-validation-for="TaskDescription"></span>
             </div>
 
-            <div class="input-wrapper">
-                <label asp-for="TaskDate"></label>
-                <input class="field" asp-for="TaskDate" type="date" required />
-                <span asp-validation-for="TaskDate"></span>
-            </div>
+            <section class="last-fields">
+                <div class="input-wrapper">
+                    <label asp-for="TaskDate"></label>
+                    <input class="field" asp-for="TaskDate" type="date" required />
+                    <span asp-validation-for="TaskDate"></span>
+                </div>
 
-            <div class="input-wrapper">
-                <label asp-for="CategoryName"></label>
-                <input class="field" asp-for="CategoryName" type="text" minlength="3" maxlength="50" required />
-                <span asp-validation-for="CategoryName"></span>
-            </div>
+                <div class="input-wrapper">
+                    <label asp-for="CategoryName"></label>
+                    <input class="field" asp-for="CategoryName" type="text" minlength="3" maxlength="50" required />
+                    <span asp-validation-for="CategoryName"></span>
+                </div>
+            </section>
+
 
             <input type="submit" value="Salvar tarefa" />
         </div>
