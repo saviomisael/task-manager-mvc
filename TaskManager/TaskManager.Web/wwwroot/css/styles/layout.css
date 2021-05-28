@@ -7,6 +7,10 @@
     --color-white: #F1FAEE;
 }
 
+* {
+    font-family: 'JetBrains Mono', monospace;
+}
+
 body {
     width: 100vw;
 }
