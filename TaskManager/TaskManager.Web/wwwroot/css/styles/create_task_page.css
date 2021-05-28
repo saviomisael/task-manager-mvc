@@ -126,3 +126,30 @@
         font-size: 1.8rem;
     }
 }
+
+@media (min-width: 1024px) {
+    #create-task-page > nav {
+        width: 65rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #create-task-page form[name="form-create-task"] {
+        width: 65rem;
+        padding: 2rem 0;
+    }
+
+        #create-task-page form[name="form-create-task"] > h2,
+        #create-task-page form[name="form-create-task"] > #form-container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        #create-task-page form[name="form-create-task"] > h2 {
+            padding-top: 2rem;
+        }
+
+        #create-task-page form[name="form-create-task"] > #form-container {
+            padding-bottom: 2rem;
+        }
+}
