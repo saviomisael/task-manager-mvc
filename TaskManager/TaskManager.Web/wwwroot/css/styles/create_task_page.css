@@ -75,6 +75,10 @@
         border: .2rem solid #48B685;
     }
 
+    #create-task-page #form-container > .input-wrapper > .field[type="date"] {
+        width: 16.48rem;
+    }
+
     #create-task-page #form-container > .input-wrapper > textarea {
         resize: none;
     }
