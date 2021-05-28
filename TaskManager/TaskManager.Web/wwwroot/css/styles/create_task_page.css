@@ -67,9 +67,17 @@
     border-radius: .3rem;
 }
 
-#create-task-page #form-container > .input-wrapper > textarea {
-    resize: none;
-}
+    #create-task-page #form-container > .input-wrapper > .field:invalid {
+        border: .15rem solid var(--color-first);
+    }
+
+    #create-task-page #form-container > .input-wrapper > .field:valid {
+        border: .2rem solid #48B685;
+    }
+
+    #create-task-page #form-container > .input-wrapper > textarea {
+        resize: none;
+    }
 
 #create-task-page #form-container > input[type="submit"] {
     background-color: var(--color-second);
