@@ -56,17 +56,15 @@
 
 #create-task-page #form-container > .input-wrapper > label {
     color: var(--color-second-light);
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: .4rem;
 }
 
-#create-task-page #form-container > .input-wrapper > input
-#create-task-page #form-container > .input-wrapper > textarea,
-#create-task-page #form-container > .input-wrapper > select {
+#create-task-page #form-container > .input-wrapper > .field {
     margin-bottom: .4rem;
     border: none;
     padding: .2rem .5rem;
-    border-radius: .2rem;
+    border-radius: .3rem;
 }
 
 #create-task-page #form-container > .input-wrapper > textarea {
@@ -76,7 +74,6 @@
 #create-task-page #form-container > input[type="submit"] {
     background-color: var(--color-second);
     border: none;
-    border-radius: .2rem;
     padding: 1rem 1.7rem;
     color: var(--color-white);
     font-weight: bold;
