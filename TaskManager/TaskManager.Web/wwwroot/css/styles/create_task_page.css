@@ -103,6 +103,11 @@
         padding: .7rem 2rem;
     }
 
+    #create-task-page form[name="form-create-task"] {
+        margin-top: 3rem;
+        width: 70vw;
+    }
+
     #create-task-page #form-container .input-wrapper > .field {
         height: 5vh;
     }
