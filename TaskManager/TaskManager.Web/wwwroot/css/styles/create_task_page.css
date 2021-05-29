@@ -28,13 +28,13 @@
                 background-color: #1D3557ED;
             }
 
-            #create-task-page form[name="form-create-task"] {
-                background-color: var(--color-second-light);
-                margin: 0 auto;
-                padding: 2rem 1.5rem;
-                border-radius: 0.5rem;
-                box-shadow: var(--color-second) -1.2rem 1.2rem;
-            }
+    #create-task-page form[name="form-create-task"] {
+        background-color: var(--color-second-light);
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: var(--color-second) -1.2rem 1.2rem;
+    }
 
         #create-task-page form[name="form-create-task"] > h2 {
             text-align: center;
@@ -54,13 +54,27 @@
             flex-direction: column;
         }
 
-            #create-task-page form[name="form-create-task"] > #form-container .input-wrapper {
-                display: flex;
-                flex-direction: column;
-                width: calc(0.8 * 80vw);
-                margin: auto;
-                padding: .4rem;
+            #create-task-page form[name="form-create-task"] > #form-container .error {
+                font-size: 1.4rem;
+                color: var(--color-first);
             }
+
+                #create-task-page form[name="form-create-task"] > #form-container .error:first-child,
+                #create-task-page form[name="form-create-task"] > #form-container .input-wrapper {
+                    width: calc(0.8 * 80vw);
+                }
+
+                    #create-task-page form[name="form-create-task"] > #form-container .error:first-child {
+                        margin: auto;
+                        text-align: center;
+                    }
+
+                        #create-task-page form[name="form-create-task"] > #form-container .input-wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            margin: auto;
+                            padding: .4rem;
+                        }
 
     #create-task-page #form-container .input-wrapper > label,
     #create-task-page #form-container .input-wrapper > .field {
@@ -108,9 +122,9 @@
             background-color: #457B9DCC;
         }
 
-        .footer {
-            position: static;
-        }
+.footer {
+    position: static;
+}
 
 @media(min-width: 768px) {
     #create-task-page > nav,
@@ -126,10 +140,16 @@
         margin-top: 3rem;
     }
 
+        #create-task-page form[name="form-create-task"] > #form-container .error:first-child,
         #create-task-page form[name="form-create-task"] > #form-container .input-wrapper,
         #form-container .last-fields {
             width: calc(0.8 * 70vw);
         }
+
+            #create-task-page form[name="form-create-task"] > #form-container .error:first-child {
+                margin: auto;
+                text-align: center;
+            }
 
     #create-task-page #form-container .input-wrapper > .field {
         height: 6vh;
@@ -174,6 +194,7 @@
             padding-bottom: 2rem;
         }
 
+            #create-task-page form[name="form-create-task"] > #form-container .error:first-child,
             #create-task-page form[name="form-create-task"] > #form-container .input-wrapper,
             #form-container .last-fields {
                 width: calc(0.8 * 65rem);
