@@ -3,11 +3,15 @@
     padding-top: 1rem;
 }
 
+    #create-task-page > nav,
+    #create-task-page form[name="form-create-task"] {
+        width: 80vw;
+    }
+
     #create-task-page > nav {
         display: flex;
         justify-content: flex-end;
         margin: 1rem auto;
-        width: 80vw;
     }
 
         #create-task-page > nav > .home-link {
@@ -21,7 +25,6 @@
 
     #create-task-page form[name="form-create-task"] {
         background-color: var(--color-second-light);
-        width: 80vw;
         margin: 0 auto;
         padding: 2rem 1.5rem;
         border-radius: 0.5rem;
@@ -33,7 +36,6 @@
             background-color: var(--color-second-dark);
             border-radius: .5rem .5rem 0 0;
             padding-top: 1rem;
-            font-size: 2rem;
             color: var(--color-second-light);
         }
 
@@ -50,14 +52,18 @@
             #create-task-page form[name="form-create-task"] > #form-container .input-wrapper {
                 display: flex;
                 flex-direction: column;
-                width: 80%;
+                width: calc(0.8 * 80vw);
                 margin: auto;
                 padding: .4rem;
             }
 
+    #create-task-page #form-container .input-wrapper > label,
+    #create-task-page #form-container .input-wrapper > .field {
+        font-size: 1.6rem;
+    }
+
     #create-task-page #form-container .input-wrapper > label {
         color: var(--color-second-light);
-        font-size: 1.6rem;
         margin-bottom: .4rem;
     }
 
@@ -76,10 +82,6 @@
             border: .2rem solid #48B685;
         }
 
-        #create-task-page #form-container .input-wrapper > .field[type="date"] {
-            width: 16.48rem;
-        }
-
     #create-task-page #form-container .input-wrapper > textarea {
         resize: none;
     }
@@ -87,6 +89,7 @@
     #create-task-page #form-container > input[type="submit"] {
         background-color: var(--color-second);
         border: none;
+        border-radius: .2rem;
         padding: 1rem 1.7rem;
         color: var(--color-white);
         font-weight: bold;
@@ -100,21 +103,26 @@
 }
 
 @media(min-width: 768px) {
-    #create-task-page > nav {
+    #create-task-page > nav,
+    #create-task-page form[name="form-create-task"] {
         width: 70vw;
     }
 
-    #create-task-page > nav > .home-link {
-        padding: .7rem 2rem;
-    }
+        #create-task-page > nav > .home-link {
+            padding: .7rem 2rem;
+        }
 
     #create-task-page form[name="form-create-task"] {
         margin-top: 3rem;
-        width: 70vw;
     }
 
+        #create-task-page form[name="form-create-task"] > #form-container .input-wrapper,
+        #form-container .last-fields {
+            width: calc(0.8 * 70vw);
+        }
+
     #create-task-page #form-container .input-wrapper > .field {
-        height: 5vh;
+        height: 6vh;
     }
 
         #create-task-page #form-container .input-wrapper > .field[name="TaskDescription"] {
@@ -123,8 +131,8 @@
 
     #form-container .last-fields {
         display: flex;
+        justify-content: space-between;
         margin: 0 auto;
-        width: 80%;
     }
 
     #create-task-page #form-container > input[type="submit"] {
@@ -133,12 +141,12 @@
 }
 
 @media (min-width: 1024px) {
-    #create-task-page > nav {
+    #create-task-page > nav,
+    #create-task-page form[name="form-create-task"] {
         width: 65rem;
     }
 
     #create-task-page form[name="form-create-task"] {
-        width: 65rem;
         padding: 2rem 0;
     }
 
@@ -155,4 +163,9 @@
         #create-task-page form[name="form-create-task"] > #form-container {
             padding-bottom: 2rem;
         }
+
+            #create-task-page form[name="form-create-task"] > #form-container .input-wrapper,
+            #form-container .last-fields {
+                width: calc(0.8 * 65rem);
+            }
 }

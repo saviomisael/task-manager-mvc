@@ -17,6 +17,10 @@ a {
     text-decoration: none;
 }
 
+h2 {
+    font-size: 2rem;
+}
+
 .bg-color-first {
     background-color: var(--color-first);
 }
@@ -29,7 +33,6 @@ a {
 }
 
     .header > .home-link > h2 {
-        font-size: 2rem;
         color: var(--color-white);
         text-align: center;
     }
