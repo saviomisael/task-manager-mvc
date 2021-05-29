@@ -18,6 +18,8 @@
 
         <div id="form-container">
 
+            <div asp-validation-summary="ModelOnly"></div>
+
             <div class="input-wrapper">
                 <label asp-for="TaskName"></label>
                 <input class="field" asp-for="TaskName" type="text" minlength="3" maxlength="50" required />
