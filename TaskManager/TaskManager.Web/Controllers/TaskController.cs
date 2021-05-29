@@ -22,5 +22,13 @@ namespace TaskManager.Web.Controllers
 
             return View(viewModel);
         }
+
+        [Route("criar-tarefa")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateTask(CreateTaskViewModel viewModel)
+        {
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
     }
 }
