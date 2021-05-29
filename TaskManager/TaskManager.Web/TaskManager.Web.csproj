@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\js\" />
+    <Folder Include="wwwroot\js\scripts\" />
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
