@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using TaskManager.Web.Common;
+using TaskManager.Web.Models;
 
 namespace TaskManager.Web.ViewModels
 {
@@ -37,6 +38,23 @@ namespace TaskManager.Web.ViewModels
         public CreateTaskViewModel()
         {
             Priorities = Priority.ReturnPrioritiesForSelectList();
+        }
+
+        public static Task ToTaskModel(CreateTaskViewModel viewModel)
+        {
+            var taskCategory = new Category()
+            {
+                CategoryName = viewModel.CategoryName
+            };
+
+            return new Task()
+            {
+                Category = taskCategory,
+                TaskName = viewModel.TaskName,
+                TaskDate = viewModel.TaskDate,
+                TaskDescription = viewModel.TaskDescription,
+                TaskPriority = viewModel.TaskPriority
+            };
         }
     }
 }
