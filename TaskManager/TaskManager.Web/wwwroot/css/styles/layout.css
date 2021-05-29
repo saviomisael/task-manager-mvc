@@ -48,8 +48,8 @@ h2 {
     width: 100%;
 }
 
-.footer .footer-description {
-    font-size: 2rem;
-    color: var(--color-white);
-    text-align: center;
-}
+    .footer .footer-description {
+        font-size: 2rem;
+        color: var(--color-white);
+        text-align: center;
+    }
