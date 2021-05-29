@@ -28,7 +28,18 @@ namespace TaskManager.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateTask(CreateTaskViewModel viewModel)
         {
-            return RedirectToAction(nameof(HomeController.Index), "Home");
+            if(ModelState.IsValid) {
+                var model = CreateTaskViewModel.ToTaskModel(viewModel);
+
+                if(_taskRepository.CreateTask(model))
+                {
+                    return RedirectToAction(nameof(HomeController.Index), "Home");
+                }
+
+                ModelState.AddModelError("", "Erro ao criar tarefa");
+            }
+
+            return RedirectToAction(nameof(CreateTask), viewModel);
         }
     }
 }
