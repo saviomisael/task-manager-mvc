@@ -23,13 +23,18 @@
             font-weight: bold;
         }
 
-    #create-task-page form[name="form-create-task"] {
-        background-color: var(--color-second-light);
-        margin: 0 auto;
-        padding: 2rem 1.5rem;
-        border-radius: 0.5rem;
-        box-shadow: var(--color-second) -1.2rem 1.2rem;
-    }
+            #create-task-page > nav > .home-link:hover,
+            #create-task-page > nav > .home-link:active {
+                background-color: #1D3557ED;
+            }
+
+            #create-task-page form[name="form-create-task"] {
+                background-color: var(--color-second-light);
+                margin: 0 auto;
+                padding: 2rem 1.5rem;
+                border-radius: 0.5rem;
+                box-shadow: var(--color-second) -1.2rem 1.2rem;
+            }
 
         #create-task-page form[name="form-create-task"] > h2 {
             text-align: center;
@@ -98,9 +103,14 @@
         text-transform: uppercase;
     }
 
-.footer {
-    position: static;
-}
+        #create-task-page #form-container > input[type="submit"]:hover,
+        #create-task-page #form-container > input[type="submit"]:active {
+            background-color: #457B9DCC;
+        }
+
+        .footer {
+            position: static;
+        }
 
 @media(min-width: 768px) {
     #create-task-page > nav,
