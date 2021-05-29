@@ -4,13 +4,22 @@
     ViewData["Title"] = "Home Page";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="@Url.Content("~/css/home_page.min.css")" />
+}
+
 <div id="home-page">
     <div class="home-page-container">
-        <h1>Seja bem-vindo ao Gerenciador de Tarefas</h1>
+        <h1 class="welcome-message">Seja bem-vindo ao Gerenciador de Tarefas</h1>
+
+        <header class="menu-bar-home-page">
+            <p>Suas tarefas:</p>
+            <button>Adicionar tarefa</button>
+        </header>
 
         @if (Model == null || Model.Count() == 0)
         {
-            <figure>
+            <figure class="figure-balloon-empty">
                 <img src="@Url.Content("~/img/balloon-empty.svg")" alt="Balão vazio" />
                 <figcaption>Oops... Parece que você não tem nenhuma tarefa cadastrada.</figcaption>
             </figure>
@@ -18,11 +27,6 @@
         else
         {
             <section class="home-page-content">
-                <header class="content-header">
-                    <p>Suas tarefas:</p>
-                    <button>Adicionar tarefa</button>
-                </header>
-
                 <main class="content-main">
                     <div class="task-wrapper">
                         <div class="task-wrapper-content">
