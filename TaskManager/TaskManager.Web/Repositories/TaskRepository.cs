@@ -1,6 +1,10 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using TaskManager.Web.Models;
 using TaskManager.Web.Repositories.Contracts;
 
 namespace TaskManager.Web.Repositories
@@ -49,6 +53,14 @@ namespace TaskManager.Web.Repositories
                 }
 
                 return false;
+            }
+        }
+
+        public ICollection<Task> ListAllTasks()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                return connection.Query<Task>("SELECT DISTINCT * FROM Task AS t INNER JOIN Category AS c ON t.CategoryFK = c.CategoryID ORDER BY t.TaskDate").ToList();
             }
         }
     }
