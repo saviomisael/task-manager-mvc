@@ -6,7 +6,8 @@
     #create-task-page > nav {
         display: flex;
         justify-content: flex-end;
-        margin: 1rem 2rem;
+        margin: 1rem auto;
+        width: 80vw;
     }
 
         #create-task-page > nav > .home-link {
@@ -99,6 +100,10 @@
 }
 
 @media(min-width: 768px) {
+    #create-task-page > nav {
+        width: 70vw;
+    }
+
     #create-task-page > nav > .home-link {
         padding: .7rem 2rem;
     }
@@ -130,8 +135,6 @@
 @media (min-width: 1024px) {
     #create-task-page > nav {
         width: 65rem;
-        margin-left: auto;
-        margin-right: auto;
     }
 
     #create-task-page form[name="form-create-task"] {
