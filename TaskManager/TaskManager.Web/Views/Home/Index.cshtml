@@ -8,23 +8,27 @@
     <div class="home-page-container">
         <h1>Seja bem-vindo ao Gerenciador de Tarefas</h1>
 
-        <section class="home-page-content">
-            <header class="content-header">
-                <p>Suas tarefas:</p>
-                <button>Adicionar tarefa</button>
-            </header>
+        @if (Model != null)
+        {
 
-            <main class="content-main">
-                <div class="task-wrapper">
-                    <div class="task-wrapper-content">
-                        <h4>Título</h4>
-                        <p>Categoria</p>
-                        <p>Descrição</p>
-                        <p>Data tarefa</p>
+            <section class="home-page-content">
+                <header class="content-header">
+                    <p>Suas tarefas:</p>
+                    <button>Adicionar tarefa</button>
+                </header>
+
+                <main class="content-main">
+                    <div class="task-wrapper">
+                        <div class="task-wrapper-content">
+                            <h4>Título</h4>
+                            <p>Categoria</p>
+                            <p>Descrição</p>
+                            <p>Data tarefa</p>
+                        </div>
+                        <div class="tas-wrapper-buttons"></div>
                     </div>
-                    <div class="tas-wrapper-buttons"></div>
-                </div>
-            </main>
-        </section>
+                </main>
+            </section>
+        }
     </div>
 </div>
