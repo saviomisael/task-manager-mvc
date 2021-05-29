@@ -27,3 +27,4 @@ const defaultTask = () => {
 
 exports.default = defaultTask;
 exports.minifyCSS = minifyCSS;
+exports.minifyJS = minifyJS;
