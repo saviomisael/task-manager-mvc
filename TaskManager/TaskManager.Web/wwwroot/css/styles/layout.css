@@ -12,10 +12,6 @@
     box-sizing: border-box;
 }
 
-body {
-    width: 100vw;
-}
-
 a {
     outline: none;
     text-decoration: none;
@@ -26,7 +22,6 @@ a {
 }
 
 .header {
-    width: 100vw;
     height: 13vh;
     display: flex;
     justify-content: center;
