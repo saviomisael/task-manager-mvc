@@ -14,7 +14,7 @@ namespace TaskManager.Web.ViewModels
         public string TaskName { get; set; }
 
         [Required(ErrorMessage = "A tarefa deve ter uma prioridade.")]
-        [Range(1, 3, ErrorMessage = "Nível de prioridade inválido.")]
+        [Range(1, 3, ErrorMessage = "Valor da prioridade é inválido.")]
         [Display(Name = "Prioridade")]
         public int TaskPriority { get; set; }
         public SelectList Priorities { get; set; }
