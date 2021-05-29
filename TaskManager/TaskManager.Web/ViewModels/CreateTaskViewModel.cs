@@ -38,6 +38,7 @@ namespace TaskManager.Web.ViewModels
         public CreateTaskViewModel()
         {
             Priorities = Priority.ReturnPrioritiesForSelectList();
+            TaskDate = DateTime.Now;
         }
 
         public static Task ToTaskModel(CreateTaskViewModel viewModel)
