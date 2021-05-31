@@ -26,19 +26,25 @@
         }
         else
         {
-            <section class="home-page-content">
-                <main class="content-main">
-                    <div class="task-wrapper">
-                        <div class="task-wrapper-content">
-                            <h4>Título</h4>
-                            <p>Categoria</p>
-                            <p>Descrição</p>
-                            <p>Data tarefa</p>
+            foreach (var task in Model)
+            {
+                <section class="home-page-content">
+                    <main class="content-main">
+                        <div class="task-wrapper">
+                            <div class="task-wrapper-content">
+                                <h4>@task.TaskName</h4>
+                                <p>@task.Category.CategoryName</p>
+                                <p>@task.TaskDescription</p>
+                                <p>@task.TaskDate</p>
+                            </div>
+                            <div class="tas-wrapper-buttons">
+                                <img src="@Url.Content("~/img/edit-task.svg")" alt="Editar tarefa" />
+                                <img src="@Url.Content("~/img/delete-task.svg")" alt="Excluir tarefa" />
+                            </div>
                         </div>
-                        <div class="tas-wrapper-buttons"></div>
-                    </div>
-                </main>
-            </section>
+                    </main>
+                </section>
+            }
         }
     </div>
 </div>
