@@ -31,6 +31,8 @@
             font-size: 1.4rem;
             padding: .5rem 1rem;
             transition: background-color .3s;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
             .home-page-container > .menu-bar-home-page > button:hover,
@@ -39,15 +41,60 @@
                 cursor: pointer;
             }
 
-            .home-page-container > .figure-balloon-empty > img {
-                width: 100%;
-            }
+    .home-page-container > .figure-balloon-empty > img {
+        width: 100%;
+    }
 
     .home-page-container > .figure-balloon-empty > figcaption {
         font-size: 1.5rem;
         margin-top: 1rem;
         color: var(--color-second);
     }
+
+    .home-page-container > .home-page-content {
+        background: var(--color-second-light);
+        padding: 1rem;
+        border-radius: .3rem;
+        box-shadow: var(--color-second) -1rem 1rem;
+    }
+
+.home-page-content > .task-wrapper {
+    background-color: var(--color-second-dark);
+    padding: .8rem;
+    display: flex;
+    color: var(--color-second-light);
+    font-size: 1.5rem;
+    border-radius: .3rem;
+}
+
+    .home-page-content > .task-wrapper + .task-wrapper {
+        margin-top: 0.8rem;
+    }
+
+    .home-page-content > .task-wrapper > .task-wrapper-content {
+        flex: 1;
+        line-height: 2rem;
+    }
+
+        .home-page-content > .task-wrapper > .task-wrapper-content > h4 {
+            margin-bottom: .6rem;
+        }
+
+    .home-page-content > .task-wrapper > .task-wrapper-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .home-page-content > .task-wrapper > .task-wrapper-buttons > img {
+            width: 3.4rem;
+            cursor: pointer;
+        }
+
+            .home-page-content > .task-wrapper > .task-wrapper-buttons > img:first-child {
+                margin-bottom: .5rem;
+            }
 
 .footer {
     position: static;
@@ -56,6 +103,7 @@
 @media(min-width: 768px) {
     .home-page-container > .menu-bar-home-page {
         flex-direction: row;
+        justify-content: space-between;
     }
 
     .home-page-container > .figure-balloon-empty {
@@ -63,9 +111,17 @@
         margin: auto;
     }
 
-    .home-page-container > .figure-balloon-empty > figcaption {
-        font-size: 1.5rem;
-        text-align: center;
+        .home-page-container > .figure-balloon-empty > figcaption {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+    .home-page-container > .home-page-content {
+        padding: 1.8rem;
+    }
+
+    .home-page-content > .task-wrapper {
+        padding: 1.6rem;
     }
 }
 
@@ -79,13 +135,23 @@
         justify-content: space-between;
     }
 
-    .home-page-container > .menu-bar-home-page > p,
-    .home-page-container > .menu-bar-home-page > button,
-    .home-page-container > .figure-balloon-empty > figcaption {
-        font-size: 1.7rem;
-    }
+        .home-page-container > .menu-bar-home-page > p,
+        .home-page-container > .menu-bar-home-page > button,
+        .home-page-container > .figure-balloon-empty > figcaption {
+            font-size: 1.7rem;
+        }
 
     .home-page-container > .figure-balloon-empty {
         width: 40rem;
+    }
+
+    .home-page-content > .task-wrapper {
+        transition: margin .6s;
+    }
+
+    .home-page-content > .task-wrapper:hover,
+    .home-page-content > .task-wrapper:active {
+        margin-left: .6rem;
+        margin-right: -0.6rem;
     }
 }
