@@ -1,7 +1,53 @@
 ﻿@model EditTaskViewModel
 
-@{ 
-    ViewBag.Title = "Editar tarefa";
+@{
+    ViewBag.Title = "Editar Tarefa";
 }
 
-<h2>Editar tarefa</h2>
+@section Styles {
+    <link rel="stylesheet" href="@Url.Content("~/css/edit_task_page.min.css")" />
+}
+
+<div id="edit-task-page">
+    <nav>
+        <a class="home-link" href="@Url.Action("Index", "Home")">Voltar</a>
+    </nav>
+
+    <form asp-action="EditTask" asp-controller="Task" method="post">
+        <h2>Editar tarefa</h2>
+
+        <input type="hidden" asp-for="CategoryID" />
+
+        <div class="input-wrapper">
+            <label asp-for="TaskName"></label>
+            <input type="text" asp-for="TaskName" minlength="3" maxlength="50" required />
+            <span asp-validation-for="TaskName"></span>
+        </div>
+
+        <div class="input-wrapper">
+            <label asp-for="TaskPriority"></label>
+            <select asp-for="TaskPriority" asp-items="Model.Priorities" required></select>
+            <span asp-validation-for="TaskPriority"></span>
+        </div>
+
+        <div class="input-wrapper">
+            <label asp-for="TaskDescription"></label>
+            <textarea type="text" asp-for="TaskDescription" minlength="3" maxlength="8000" required></textarea>
+            <span asp-validation-for="TaskDescription"></span>
+        </div>
+
+        <div class="input-wrapper">
+            <label asp-for="TaskDate"></label>
+            <input type="date" asp-for="TaskDate" required />
+            <span asp-validation-for="TaskDate"></span>
+        </div>
+
+        <div class="input-wrapper">
+            <label asp-for="CategoryName"></label>
+            <input type="text" asp-for="CategoryName" minlength="3" maxlength="50" required />
+            <span asp-validation-for="CategoryName"></span>
+        </div>
+
+        <input type="submit" value="Salvar Alterações" />
+    </form>
+</div>

@@ -1,0 +1,25 @@
+﻿#edit-task-page {
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+}
+
+#edit-task-page > nav {
+    width: 80vw;
+    display: flex;
+    justify-content: flex-start;
+    margin: 1rem auto;
+}
+
+    #edit-task-page > nav > .home-link {
+        border-radius: .3rem;
+        font-size: 1.8rem;
+        padding: 0.3rem 1.5rem;
+        background-color: var(--color-second-dark);
+        color: var(--color-second-light);
+        font-weight: bold;
+    }
+
+        #edit-task-page > nav > .home-link:hover,
+        #edit-task-page > nav > .home-link:active {
+            background-color: #1D3557ED;
+        }
