@@ -87,12 +87,12 @@
         align-items: center;
     }
 
-        .home-page-content > .task-wrapper > .task-wrapper-buttons > img {
+        .home-page-content > .task-wrapper > .task-wrapper-buttons img {
             width: 3.4rem;
             cursor: pointer;
         }
 
-            .home-page-content > .task-wrapper > .task-wrapper-buttons > img:first-child {
+            .home-page-content > .task-wrapper > .task-wrapper-buttons img:first-child {
                 margin-bottom: .5rem;
             }
 
