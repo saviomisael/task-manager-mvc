@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using TaskManager.Web.Common;
+using TaskManager.Web.Models;
 
 namespace TaskManager.Web.ViewModels
 {
@@ -39,5 +38,25 @@ namespace TaskManager.Web.ViewModels
         [StringLength(50, ErrorMessage = "A categoria da tarefa só permite até 50 caracteres.")]
         [Display(Name = "Categoria da tarefa")]
         public string CategoryName { get; set; }
+
+        public EditTaskViewModel()
+        {
+            TaskDate = DateTime.Now;
+            Priorities = Priority.ReturnPrioritiesForSelectList();
+        }
+
+        public static EditTaskViewModel ToViewModel(Task model)
+        {
+            return new EditTaskViewModel()
+            {
+                TaskID = model.TaskID,
+                TaskDate = model.TaskDate,
+                TaskDescription = model.TaskDescription,
+                TaskName = model.TaskName,
+                TaskPriority = model.TaskPriority,
+                CategoryID = model.Category.CategoryID,
+                CategoryName = model.Category.CategoryName
+            };
+        }
     }
 }
