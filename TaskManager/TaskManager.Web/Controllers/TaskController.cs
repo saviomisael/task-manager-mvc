@@ -57,5 +57,26 @@ namespace TaskManager.Web.Controllers
 
             return View(EditTaskViewModel.ToViewModel(task));
         }
+
+        [Route("editar-tarefa/{id:int:min(1)}/{taskName}")]
+        [HttpPost]
+        public IActionResult EditTask([FromRoute] int id, EditTaskViewModel viewModel)
+        {
+            if(id != viewModel.TaskID)
+            {
+                return NotFound();
+            }
+
+            if(ModelState.IsValid)
+            {
+                if(_taskRepository.UpdateTask(EditTaskViewModel.ToModel(viewModel)))
+                {
+                    RedirectToAction(nameof(HomeController.Index), "Home");
+                }
+            }
+
+            ModelState.AddModelError("", "Erro ao atualizar tarefa.");
+            return View(viewModel);
+        }
     }
 }
