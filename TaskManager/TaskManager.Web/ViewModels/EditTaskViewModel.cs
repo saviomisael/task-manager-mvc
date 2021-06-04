@@ -58,5 +58,25 @@ namespace TaskManager.Web.ViewModels
                 CategoryName = model.Category.CategoryName
             };
         }
+
+        public static Task ToModel(EditTaskViewModel viewModel)
+        {
+            var category = new Category()
+            {
+                CategoryID = viewModel.CategoryID,
+                CategoryName = viewModel.CategoryName
+            };
+
+            return new Task()
+            {
+                TaskID = viewModel.TaskID,
+                TaskName = viewModel.TaskName,
+                TaskDescription = viewModel.TaskDescription,
+                TaskDate = viewModel.TaskDate,
+                TaskPriority = viewModel.TaskPriority,
+                CategoryFK = viewModel.CategoryID,
+                Category = category
+            };
+        }
     }
 }
