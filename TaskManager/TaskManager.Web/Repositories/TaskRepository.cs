@@ -55,6 +55,22 @@ namespace TaskManager.Web.Repositories
             }
         }
 
+        public Task GetById(int id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                return connection.Query<Task, Category, Task>("SELECT * FROM Task AS t INNER JOIN Category AS c ON t.CategoryFK = c.CategoryID WHERE t.TaskID = @TaskID",
+                    (task, category) =>
+                    {
+                        task.Category = category;
+                        return task;
+                    }, 
+                    new { TaskID = id }, 
+                    splitOn: "CategoryID")
+                    .SingleOrDefault();
+            }
+        }
+
         public ICollection<Task> ListAllTasks()
         {
             using (var connection = new SqlConnection(_connectionString))
