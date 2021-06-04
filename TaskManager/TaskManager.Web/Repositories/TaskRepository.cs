@@ -86,5 +86,20 @@ namespace TaskManager.Web.Repositories
                     .ToList();
             }
         }
+
+        public bool UpdateTask(Task task)
+        {
+            if(_categoryRepository.UpdateCategory(task.Category))
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                    var affectedRows = connection.Execute("UPDATE Task SET TaskName = @TaskName, TaskPriority = @TaskPriority, TaskDescription = @TaskDescription, TaskDate = @TaskDate", task);
+
+                    return affectedRows > 0;
+                }
+            }
+
+            return false;
+        }
     }
 }
