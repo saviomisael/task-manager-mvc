@@ -25,5 +25,15 @@ namespace TaskManager.Web.Repositories
                     new { NameCategory = category.CategoryName });
             }
         }
+
+        public bool UpdateCategory(Category category)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var affectedRows = connection.Execute("UPDATE Category SET CategoryName = @CategoryName WHERE CategoryID = @CategoryID", category);
+
+                return affectedRows > 0;
+            }
+        }
     }
 }
