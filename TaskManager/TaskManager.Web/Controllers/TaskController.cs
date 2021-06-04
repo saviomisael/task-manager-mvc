@@ -45,12 +45,12 @@ namespace TaskManager.Web.Controllers
 
         [Route("editar-tarefa/{id:int:min(1)}/{taskName}")]
         [HttpGet]
-        public IActionResult EditTask([FromRoute] int id, 
+        public IActionResult EditTask([FromRoute] int id,
             [FromRoute] string taskName)
         {
             var task = _taskRepository.GetById(id);
 
-            if(task == null || task.TaskName != taskName)
+            if (task == null || task.TaskName != taskName)
             {
                 return NotFound();
             }
@@ -62,16 +62,16 @@ namespace TaskManager.Web.Controllers
         [HttpPost]
         public IActionResult EditTask([FromRoute] int id, EditTaskViewModel viewModel)
         {
-            if(id != viewModel.TaskID)
+            if (id != viewModel.TaskID)
             {
                 return NotFound();
             }
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                if(_taskRepository.UpdateTask(EditTaskViewModel.ToModel(viewModel)))
+                if (_taskRepository.UpdateTask(EditTaskViewModel.ToModel(viewModel)))
                 {
-                    RedirectToAction(nameof(HomeController.Index), "Home");
+                    return RedirectToAction(nameof(HomeController.Index), "Home");
                 }
             }
 

@@ -64,8 +64,8 @@ namespace TaskManager.Web.Repositories
                     {
                         task.Category = category;
                         return task;
-                    }, 
-                    new { TaskID = id }, 
+                    },
+                    new { TaskID = id },
                     splitOn: "CategoryID")
                     .SingleOrDefault();
             }
@@ -89,11 +89,11 @@ namespace TaskManager.Web.Repositories
 
         public bool UpdateTask(Task task)
         {
-            if(_categoryRepository.UpdateCategory(task.Category))
+            if (_categoryRepository.UpdateCategory(task.Category))
             {
                 using (var connection = new SqlConnection(_connectionString))
                 {
-                    var affectedRows = connection.Execute("UPDATE Task SET TaskName = @TaskName, TaskPriority = @TaskPriority, TaskDescription = @TaskDescription, TaskDate = @TaskDate", task);
+                    var affectedRows = connection.Execute("UPDATE Task SET TaskName = @TaskName, TaskPriority = @TaskPriority, TaskDescription = @TaskDescription, TaskDate = @TaskDate WHERE TaskID = @TaskID", task);
 
                     return affectedRows > 0;
                 }
