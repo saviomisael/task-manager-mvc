@@ -42,5 +42,20 @@ namespace TaskManager.Web.Controllers
 
             return View(nameof(CreateTask), viewModel);
         }
+
+        [Route("editar-tarefa/{id:int:min(1)}/{taskName}")]
+        [HttpGet]
+        public IActionResult EditTask([FromRoute] int id, 
+            [FromRoute] string taskName)
+        {
+            var task = _taskRepository.GetById(id);
+
+            if(task == null || task.TaskName != taskName)
+            {
+                return NotFound();
+            }
+
+            return View(EditTaskViewModel.ToViewModel(task));
+        }
     }
 }
