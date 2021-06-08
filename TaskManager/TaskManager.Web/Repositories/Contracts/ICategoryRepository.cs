@@ -6,5 +6,6 @@ namespace TaskManager.Web.Repositories.Contracts
     {
         int CreateCategory(Category category);
         bool UpdateCategory(Category category);
+        bool DeleteCategory(int categoryID);
     }
 }
