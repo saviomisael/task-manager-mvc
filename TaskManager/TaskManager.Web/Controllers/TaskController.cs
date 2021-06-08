@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TaskManager.Web.Models;
 using TaskManager.Web.Repositories.Contracts;
 using TaskManager.Web.ViewModels;
 
@@ -77,6 +78,31 @@ namespace TaskManager.Web.Controllers
 
             ModelState.AddModelError("", "Erro ao atualizar tarefa.");
             return View(viewModel);
+        }
+
+        [Route("excluir-tarefa/{taskId:int:min(1)}")]
+        [HttpPost]
+        public IActionResult DeleteTask(int taskId, int categoryId)
+        {
+            var task = _taskRepository.GetById(taskId);
+
+            if (task is null || task.Category.CategoryID != categoryId)
+            {
+                TempData["resultMessage"] = "Esta tarefa não existe.";
+
+                return View();
+            }
+
+            if (_taskRepository.DeleteTask(task))
+            {
+                TempData["resultMessage"] = $"Tarefa {task.TaskName} excluída com sucesso.";
+
+                return View();
+            }
+
+            TempData["resultMessage"] = "Erro ao excluir tarefa.";
+
+            return View();
         }
     }
 }
