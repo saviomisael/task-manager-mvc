@@ -39,7 +39,7 @@
 
                         <div class="task-wrapper-buttons">
                             <a asp-action="EditTask" asp-controller="Task" asp-route-id="@task.TaskID" asp-route-taskName="@task.TaskName"><img src="@Url.Content("~/img/edit-task.svg")" alt="Editar tarefa" title="Editar tarefa" /></a>
-                            <img src="@Url.Content("~/img/delete-task.svg")" alt="Excluir tarefa" title="Excluir tarefa" />
+                            <img class="delete-task-img" src="@Url.Content("~/img/delete-task.svg")" alt="Excluir tarefa" title="Excluir tarefa" data-task-id="@task.TaskID" data-category-id="@task.Category.CategoryID" />
                         </div>
                     </div>
                 }

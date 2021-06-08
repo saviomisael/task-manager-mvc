@@ -1,6 +1,9 @@
-﻿let btnAddTask = document.querySelector(".menu-bar-home-page button");
+﻿const btnAddTask = document.querySelector(".menu-bar-home-page button");
+const modalContainer = document.querySelector(".modal-container");
+const allDeleteTaskImages = document.querySelectorAll(".delete-task-img");
+const closeModalButton = document.querySelector(".close-modal");
 
-function goCreateTaskPage() {
+const goCreateTaskPage = () => {
     window.location = "/tarefas/criar-tarefa"
 }
 
@@ -16,6 +19,26 @@ const changePositionFooter = () => {
     }
 }
 
+const showModal = () => {
+    modalContainer
+        .classList
+        .add("show-modal");
+}
+
+const closeModal = () => {
+    modalContainer
+        .classList
+        .remove("show-modal");
+}
+
 btnAddTask.onclick = goCreateTaskPage;
 
 changePositionFooter();
+
+allDeleteTaskImages.forEach((element) => {
+    element.addEventListener("click", (e) => {
+        showModal();
+    });
+})
+
+closeModalButton.onclick = closeModal;
