@@ -55,6 +55,23 @@ namespace TaskManager.Web.Repositories
             }
         }
 
+        public bool DeleteTask(Task task)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var affectedRows = connection.Execute("DELETE FROM Task WHERE TaskID = @TaskID", new { TaskID = task.TaskID });
+
+                if (affectedRows > 0)
+                {
+                    _categoryRepository.DeleteCategory(task.Category.CategoryID);
+
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
         public Task GetById(int id)
         {
             using (var connection = new SqlConnection(_connectionString))
