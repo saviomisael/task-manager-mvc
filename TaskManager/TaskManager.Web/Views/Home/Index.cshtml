@@ -51,7 +51,9 @@
         <div class="modal">
             <button class="close-modal">x</button>
             <p class="modal-question">Você quer excluir essa tarefa?</p>
-            <button class="button-delete">Excluir</button>
+            <form name="delete-task" asp-action="DeleteTask" asp-controller="Task" method="post">
+            <button type="submit" class="button-delete">Excluir</button>
+            </form>
         </div>
     </div>
 </div>

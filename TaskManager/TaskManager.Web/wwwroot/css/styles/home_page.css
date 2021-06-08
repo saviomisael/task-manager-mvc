@@ -145,7 +145,7 @@
         margin: 1rem 0 2rem;
     }
 
-    .modal-container > .modal > .button-delete {
+    .modal-container > .modal > form[name="delete-task"] > .button-delete {
         background-color: var(--color-first);
         border: none;
         border-radius: 0.2rem;
@@ -154,6 +154,7 @@
         color: var(--color-white);
         font-weight: bold;
         font-size: 1.7rem;
+        cursor: pointer;
     }
 
     .footer {
@@ -227,7 +228,7 @@
         width: 40%;
     }
 
-        .modal-container > .modal > .button-delete {
+        .modal-container > .modal > form[name="delete-task"] > .button-delete {
             padding: 1rem 2rem;
         }
 }

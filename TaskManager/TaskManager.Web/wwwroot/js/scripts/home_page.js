@@ -31,6 +31,20 @@ const closeModal = () => {
         .remove("show-modal");
 }
 
+const addInputForDeleteTaskModal = ({ taskId, categoryId }) => {
+    const form = document.querySelector("form[name='delete-task']");
+
+    if (!form.innerHTML.includes('taskId' || 'categoryId')) {
+        form.innerHTML = `<input type='hidden' name='taskId' value=${taskId} />
+<input type='hidden' name='categoryId' value=${categoryId} />
+${form.innerHTML}`;
+    } else {
+        form.querySelector("input[name='taskId']").value = taskId;
+        form.querySelector("input[name='categoryId']").value = categoryId;
+    }
+
+}
+
 btnAddTask.onclick = goCreateTaskPage;
 
 changePositionFooter();
@@ -38,6 +52,8 @@ changePositionFooter();
 allDeleteTaskImages.forEach((element) => {
     element.addEventListener("click", (e) => {
         showModal();
+
+        addInputForDeleteTaskModal(element.dataset);
     });
 })
 
