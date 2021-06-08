@@ -80,7 +80,7 @@ namespace TaskManager.Web.Controllers
             return View(viewModel);
         }
 
-        [Route("excluir-tarefa/{taskId:int:min(1)}")]
+        [Route("excluir-tarefa")]
         [HttpPost]
         public IActionResult DeleteTask(int taskId, int categoryId)
         {
