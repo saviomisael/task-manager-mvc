@@ -96,9 +96,69 @@
                 margin-bottom: .5rem;
             }
 
-.footer {
-    position: static;
+#home-page > .modal-container {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    display: none;
 }
+
+    #home-page > .show-modal {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+.modal-container > .modal {
+    background-color: var(--color-second);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 1.4rem;
+    border-radius: .2rem;
+    width: 80%;
+}
+
+    .modal-container > .modal > .close-modal {
+        background-color: transparent;
+        border: none;
+        color: var(--color-first);
+        text-transform: uppercase;
+        width: 2rem;
+        height: 2rem;
+        font-size: 2rem;
+        font-weight: bold;
+        position: relative;
+        top: -1rem;
+        right: -1rem;
+        cursor: pointer;
+    }
+
+    .modal-container > .modal > .modal-question {
+        font-size: 1.6rem;
+        color: var(--color-white);
+        font-weight: bold;
+        text-align: center;
+        margin: 1rem 0 2rem;
+    }
+
+    .modal-container > .modal > .button-delete {
+        background-color: var(--color-first);
+        border: none;
+        border-radius: 0.2rem;
+        padding: 0.7rem 1rem;
+        text-transform: uppercase;
+        color: var(--color-white);
+        font-weight: bold;
+        font-size: 1.7rem;
+    }
+
+    .footer {
+        position: static;
+    }
 
 @media(min-width: 768px) {
     .home-page-container > .menu-bar-home-page {
@@ -122,6 +182,14 @@
 
     .home-page-content > .task-wrapper {
         padding: 1.6rem;
+    }
+
+    .modal-container > .modal {
+        width: 50%;
+    }
+
+    .modal-container > .modal > .modal-question {
+        width: 100%;
     }
 }
 
@@ -154,4 +222,12 @@
         margin-left: .6rem;
         margin-right: -0.6rem;
     }
+
+    .modal-container > .modal {
+        width: 40%;
+    }
+
+        .modal-container > .modal > .button-delete {
+            padding: 1rem 2rem;
+        }
 }
