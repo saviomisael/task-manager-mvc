@@ -9,5 +9,6 @@ namespace TaskManager.Web.Repositories.Contracts
         ICollection<Task> ListAllTasks();
         Task GetById(int id);
         bool UpdateTask(Task task);
+        bool DeleteTask(Task task);
     }
 }
