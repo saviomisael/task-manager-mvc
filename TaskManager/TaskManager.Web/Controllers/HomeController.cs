@@ -30,12 +30,7 @@ namespace TaskManager.Web.Controllers
         [Route("error")]
         public IActionResult ErrorStatusCode([FromQuery] int code)
         {
-            if(code == 404)
-            {
-                return View(code);
-            }
-
-            return View();
+            return View(code);
         }
     }
 }
