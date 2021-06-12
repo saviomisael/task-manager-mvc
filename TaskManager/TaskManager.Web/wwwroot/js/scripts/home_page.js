@@ -8,14 +8,23 @@ const goCreateTaskPage = () => {
 }
 
 const changePositionFooter = () => {
-    let tasks = document.querySelectorAll(".task-wrapper");
+    const tasks = document.querySelectorAll(".task-wrapper");
+    const footer = document.querySelector(".footer");
 
-    if (tasks.length <= 2 && screen.width < 1024) {
-        document.querySelector(".footer").style.position = "fixed";
+    if (tasks.length <= 2 && screen.width <= 1024) {
+        footer.style.position = "fixed";
     }
 
-    if (tasks.length < 3 && screen.width > 1024) {
-        document.querySelector(".footer").style.position = "fixed";
+    if (tasks.length <= 2 && screen.width == 320) {
+        footer.style.position = "static";
+    }
+
+    if (tasks.length == 0 && screen.width >= 1024) {
+        footer.style.position = "static";
+    }
+
+    if (tasks.length > 0 && tasks.length < 3 && screen.width >= 1024) {
+        footer.style.position = "fixed";
     }
 }
 
