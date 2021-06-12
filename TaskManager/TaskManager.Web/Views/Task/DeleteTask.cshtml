@@ -16,6 +16,16 @@
     <link href="@Url.Content("~/css/delete_task_page.min.css")" rel="stylesheet" />
 </head>
 <body>
-    <h2>Deletar tarefa</h2>
+    <main class="delete-task-page-container">
+        @if (ViewData["resultMessage"] != null)
+        {
+            if (ViewData["resultMessage"].ToString().Contains("sucesso"))
+            {
+                <img class="delete-success-img" src="@Url.Content("~/img/delete-task-success.svg")" alt="Deletado com sucesso" />
+            }
+            <p class="result-message">@ViewData["resultMessage"]</p>
+            <p class="redirect-message">Você será redirecionado em 5 segundos. Caso não seja redirecionado <a asp-action="Index" asp-controller="Home">clique aqui</a>.</p>
+        }
+    </main>
 </body>
 </html>
