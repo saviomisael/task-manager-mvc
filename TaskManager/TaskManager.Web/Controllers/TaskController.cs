@@ -88,19 +88,17 @@ namespace TaskManager.Web.Controllers
 
             if (task is null || task.Category.CategoryID != categoryId)
             {
-                TempData["resultMessage"] = "Esta tarefa não existe.";
-
-                return View();
+                return NotFound();
             }
 
             if (_taskRepository.DeleteTask(task))
             {
-                TempData["resultMessage"] = $"Tarefa {task.TaskName} excluída com sucesso.";
+                ViewData["resultMessage"] = $"Tarefa {task.TaskName} excluída com sucesso.";
 
                 return View();
             }
 
-            TempData["resultMessage"] = "Erro ao excluir tarefa.";
+            ViewData["resultMessage"] = "Erro ao excluir tarefa.";
 
             return View();
         }
