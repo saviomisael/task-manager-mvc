@@ -24,37 +24,7 @@
 
             <input type="hidden" asp-for="CategoryID" />
 
-            <div class="input-wrapper">
-                <label asp-for="TaskName"></label>
-                <input class="field" type="text" asp-for="TaskName" minlength="3" maxlength="50" required />
-                <span asp-validation-for="TaskName"></span>
-            </div>
-
-            <div class="input-wrapper">
-                <label asp-for="TaskPriority"></label>
-                <select class="field" asp-for="TaskPriority" asp-items="Model.Priorities" required></select>
-                <span asp-validation-for="TaskPriority"></span>
-            </div>
-
-            <div class="input-wrapper">
-                <label asp-for="TaskDescription"></label>
-                <textarea class="field" type="text" asp-for="TaskDescription" minlength="3" maxlength="8000" required></textarea>
-                <span asp-validation-for="TaskDescription"></span>
-            </div>
-
-            <section class="last-fields">
-                <div class="input-wrapper">
-                    <label asp-for="TaskDate"></label>
-                    <input class="field" type="date" asp-for="TaskDate" required />
-                    <span asp-validation-for="TaskDate"></span>
-                </div>
-
-                <div class="input-wrapper">
-                    <label asp-for="CategoryName"></label>
-                    <input class="field" type="text" asp-for="CategoryName" minlength="3" maxlength="50" required />
-                    <span asp-validation-for="CategoryName"></span>
-                </div>
-            </section>
+            @Html.PartialAsync("_FormTask", Model);
 
             <input type="submit" value="Salvar Alterações" />
         </div>
