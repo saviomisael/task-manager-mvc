@@ -37,6 +37,9 @@ namespace TaskManager.Web
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+            app.UseStatusCodePagesWithReExecute("/error", "?code={0}");
+
             app.UseStaticFiles();
 
             app.UseRouting();
