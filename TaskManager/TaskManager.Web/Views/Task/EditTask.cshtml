@@ -24,7 +24,7 @@
 
             <input type="hidden" asp-for="CategoryID" />
 
-            @Html.PartialAsync("_FormTask", Model);
+            @await Html.PartialAsync("_FormTask", Model);
 
             <input type="submit" value="Salvar Alterações" />
         </div>
