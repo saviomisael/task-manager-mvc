@@ -47,6 +47,10 @@
             padding: .4rem;
         }
 
+        div form > #form-container .last-fields {
+            width: 100%;
+        }
+
 div #form-container .input-wrapper > label,
 div #form-container .input-wrapper > .field {
     font-size: 1.6rem;
@@ -99,11 +103,11 @@ div #form-container > input[type="submit"] {
         margin-top: 3rem;
     }
 
-    div form > #form-container .error:first-child,
-    div form > #form-container .input-wrapper,
-    #form-container .last-fields {
-        width: calc(0.8 * 70vw);
-    }
+        div form > #form-container .error:first-child,
+        div form > #form-container .input-wrapper,
+        div form > #form-container .last-fields {
+            width: calc(0.8 * 70vw);
+        }
 
     div form > #form-container .error:first-child {
         margin: auto;
@@ -118,15 +122,19 @@ div #form-container > input[type="submit"] {
             height: 10vh;
         }
 
-    #form-container .last-fields {
+    div form > #form-container .last-fields {
         display: flex;
         justify-content: space-between;
         margin: 0 auto;
     }
 
-    div #form-container > input[type="submit"] {
-        font-size: 1.8rem;
-    }
+        div form > #form-container .last-fields > .input-wrapper {
+            width: 50%;
+        }
+
+        div #form-container > input[type="submit"] {
+            font-size: 1.8rem;
+        }
 }
 
 @media (min-width: 1024px) {
@@ -151,7 +159,7 @@ div #form-container > input[type="submit"] {
 
             div form > #form-container .error:first-child,
             div form > #form-container .input-wrapper,
-            #form-container .last-fields {
+            div form > #form-container .last-fields {
                 width: calc(0.8 * 65rem);
             }
 }
