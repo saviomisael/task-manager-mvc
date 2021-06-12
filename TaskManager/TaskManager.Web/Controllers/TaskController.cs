@@ -19,7 +19,7 @@ namespace TaskManager.Web.Controllers
         [HttpGet]
         public IActionResult CreateTask()
         {
-            var viewModel = new CreateTaskViewModel();
+            var viewModel = new EditorTaskViewModel();
 
             return View(viewModel);
         }
@@ -27,11 +27,11 @@ namespace TaskManager.Web.Controllers
         [Route("criar-tarefa")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateTask(CreateTaskViewModel viewModel)
+        public IActionResult CreateTask(EditorTaskViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                var model = CreateTaskViewModel.ToTaskModel(viewModel);
+                var model = EditorTaskViewModel.ToModel(viewModel);
 
                 if (_taskRepository.CreateTask(model))
                 {
@@ -56,12 +56,12 @@ namespace TaskManager.Web.Controllers
                 return NotFound();
             }
 
-            return View(EditTaskViewModel.ToViewModel(task));
+            return View(EditorTaskViewModel.ToViewModel(task));
         }
 
         [Route("editar-tarefa/{id:int:min(1)}/{taskName}")]
         [HttpPost]
-        public IActionResult EditTask([FromRoute] int id, EditTaskViewModel viewModel)
+        public IActionResult EditTask([FromRoute] int id, EditorTaskViewModel viewModel)
         {
             if (id != viewModel.TaskID)
             {
@@ -70,7 +70,7 @@ namespace TaskManager.Web.Controllers
 
             if (ModelState.IsValid)
             {
-                if (_taskRepository.UpdateTask(EditTaskViewModel.ToModel(viewModel)))
+                if (_taskRepository.UpdateTask(EditorTaskViewModel.ToModel(viewModel)))
                 {
                     return RedirectToAction(nameof(HomeController.Index), "Home");
                 }
