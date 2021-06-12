@@ -5,19 +5,19 @@
 }
 
 @section Styles {
-    <link href="@Url.Content("~/error_status_code_page.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/error_status_code_page.min.css")" rel="stylesheet" />
 }
 
-<div>
+<div class="page-container">
     @if (Model == 404)
     {
         <img src="@Url.Content("~/img/balloon-empty.svg")" alt="Balão vazio" />
-        <p>Erro @Model.</p>
-        <p>A página que você estava procurando não existe ou foi removida.</p>
+        <p class="error-code">Erro @Model.</p>
+        <p class="error-description">A página que você estava procurando não existe ou foi removida.</p>
     }
     else
     {
-        <p>Erro: @Model</p>
-        <p>Ocorreu um erro inesperado.</p>
+        <p class="error-code">Erro: @Model</p>
+        <p class="error-description">Ocorreu um erro inesperado.</p>
     }
 </div>

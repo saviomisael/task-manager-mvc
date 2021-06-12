@@ -1,1 +1,27 @@
-﻿
+﻿.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-second-dark);
+}
+
+.page-container > img {
+    width: 50%;
+    margin-bottom: 1rem;
+}
+
+    .page-container > .error-code {
+        font-weight: bold;
+        color: var(--color-first);
+    }
