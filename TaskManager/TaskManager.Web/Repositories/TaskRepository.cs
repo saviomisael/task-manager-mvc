@@ -99,7 +99,6 @@ namespace TaskManager.Web.Repositories
                     return task;
                 },
                 splitOn: "CategoryID")
-                    .Distinct()
                     .ToList();
             }
         }
