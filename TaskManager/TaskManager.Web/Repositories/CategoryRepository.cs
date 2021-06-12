@@ -28,7 +28,7 @@ namespace TaskManager.Web.Repositories
 
         public bool DeleteCategory(int categoryID)
         {
-            using(var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
                 var affectedRows = connection.Execute("DELETE FROM Category WHERE CategoryID = @CategoryID", new { @CategoryID = categoryID });
 

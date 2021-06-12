@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TaskManager.Web.Models;
 using TaskManager.Web.Repositories.Contracts;
 using TaskManager.Web.ViewModels;
 
