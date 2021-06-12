@@ -3,6 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using TaskManager.Web.Common;
 using TaskManager.Web.Models;
+using TaskManager.Web.Validators;
 
 namespace TaskManager.Web.ViewModels
 {
@@ -32,6 +33,7 @@ namespace TaskManager.Web.ViewModels
         [DataType(DataType.Date, ErrorMessage = "Formato de data incorreto")]
         [Display(Name = "Data da tarefa")]
         [DisplayFormat(DataFormatString = "dd/MM/yyyy")]
+        [MinTodayDate()]
         public DateTime TaskDate { get; set; }
 
         [Required(ErrorMessage = "A tarefa deve conter uma categoria")]
