@@ -80,6 +80,13 @@ namespace TaskManager.Web.Controllers
         }
 
         [Route("excluir-tarefa")]
+        [HttpGet]
+        public IActionResult DeleteTask()
+        {
+            return View();
+        }
+
+        [Route("excluir-tarefa")]
         [HttpPost]
         public IActionResult DeleteTask(int taskId, int categoryId)
         {
@@ -92,14 +99,12 @@ namespace TaskManager.Web.Controllers
 
             if (_taskRepository.DeleteTask(task))
             {
-                ViewData["resultMessage"] = $"Tarefa {task.TaskName} excluída com sucesso.";
-
-                return View();
+                TempData["resultMessage"] = $"Tarefa {task.TaskName} excluída com sucesso.";
+                return RedirectToAction(nameof(DeleteTask));
             }
 
-            ViewData["resultMessage"] = "Erro ao excluir tarefa.";
-
-            return View();
+            TempData["resultMessage"] = "Erro ao excluir tarefa.";
+            return RedirectToAction(nameof(DeleteTask));
         }
     }
 }
