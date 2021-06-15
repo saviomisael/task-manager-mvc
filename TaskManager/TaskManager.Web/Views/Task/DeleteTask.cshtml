@@ -18,9 +18,9 @@
 </head>
 <body>
     <main class="delete-task-page-container">
-        @if (ViewData["resultMessage"] != null)
+        @if (TempData["resultMessage"] != null)
         {
-            if (ViewData["resultMessage"].ToString().Contains("sucesso"))
+            if (TempData["resultMessage"].ToString().Contains("sucesso"))
             {
                 <img class="delete-success-img" src="@Url.Content("~/img/delete-task-success.svg")" alt="Deletado com sucesso" />
             }
