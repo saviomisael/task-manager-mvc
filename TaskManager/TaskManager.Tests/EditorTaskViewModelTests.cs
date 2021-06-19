@@ -66,7 +66,7 @@ namespace TaskManager.Tests
         }
 
         [Fact]
-        public void ToModel_ShoulThrowException_WhenViewModelParameterIsNull()
+        public void ToModel_ShouldThrowException_WhenViewModelParameterIsNull()
         {
             Assert.Throws<NullReferenceException>(() => EditorTaskViewModel.ToModel(null));
         }
