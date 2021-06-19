@@ -9,7 +9,7 @@ namespace TaskManager.Web.Controllers
     public class ErrorController : Controller
     {
         [Route("error")]
-        public IActionResult ErrorStatusCode([FromQuery] int code)
+        public ViewResult ErrorStatusCode([FromQuery] int code)
         {
             return View(code);
         }
