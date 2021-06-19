@@ -17,7 +17,7 @@ namespace TaskManager.Web.Models
         {
             TaskName = taskName;
             TaskPriority = taskPriority;
-            TaskDescription = TaskDescription;
+            TaskDescription = taskDescription;
             TaskDate = taskDate;
             Category = category;
         }
