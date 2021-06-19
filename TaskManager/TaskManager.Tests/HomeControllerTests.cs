@@ -13,6 +13,22 @@ namespace TaskManager.Tests
     public class HomeControllerTests
     {
         [Fact]
+        public void Index_ShouldReturnViewResult()
+        {
+            IList<Task> tasks = new List<Task>();
+
+            Mock<ITaskRepository> taskRepositoryMock = new Mock<ITaskRepository>();
+
+            taskRepositoryMock.Setup(x => x.ListAllTasks()).Returns(tasks);
+
+            HomeController homeController = new HomeController(taskRepositoryMock.Object);
+
+            var result = homeController.Index();
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+        }
+
+        [Fact]
         public void Index_ShouldReturnListTasks()
         {
             IList<Task> tasks = new List<Task>();
@@ -32,12 +48,10 @@ namespace TaskManager.Tests
 
             var result = homeController.Index();
 
-            var viewResult = Assert.IsType<ViewResult>(result);
+            IEnumerable<Task> model = Assert.IsAssignableFrom<IEnumerable<Task>>(result.Model);
 
-            IEnumerable<Task> modelViewResult = Assert.IsAssignableFrom<IEnumerable<Task>>(viewResult.Model);
-
-            Assert.Equal(tasks.Count, modelViewResult.Count());
-            Assert.Equal(tasks, modelViewResult);
+            Assert.Equal(tasks.Count, model.Count());
+            Assert.Equal(tasks, model);
         }
 
         [Fact]
