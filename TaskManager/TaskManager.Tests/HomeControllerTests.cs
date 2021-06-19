@@ -39,5 +39,21 @@ namespace TaskManager.Tests
             Assert.Equal(tasks.Count, modelViewResult.Count());
             Assert.Equal(tasks, modelViewResult);
         }
+
+        [Fact]
+        public void Index_ShouldReturnEmptyModel()
+        {
+            IList<Task> tasks = new List<Task>();
+            Mock<ITaskRepository> taskRepositoryMock = new Mock<ITaskRepository>();
+            taskRepositoryMock.Setup(x => x.ListAllTasks()).Returns(tasks);
+
+            HomeController homeController = new HomeController(taskRepositoryMock.Object);
+
+            var result = homeController.Index();
+
+            IEnumerable<Task> model = Assert.IsAssignableFrom<IEnumerable<Task>>(result.Model);
+
+            Assert.Empty(model);
+        }
     }
 }
