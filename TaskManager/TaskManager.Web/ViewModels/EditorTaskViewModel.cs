@@ -43,7 +43,7 @@ namespace TaskManager.Web.ViewModels
 
         public EditorTaskViewModel()
         {
-            TaskDate = DateTime.Now;
+            TaskDate = DateTime.Today;
             Priorities = Priority.ReturnPrioritiesForSelectList();
         }
 
