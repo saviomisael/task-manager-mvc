@@ -12,5 +12,14 @@ namespace TaskManager.Web.Models
         public DateTime TaskDate { get; set; }
 
         public Category Category { get; set; }
+
+        public Task(string taskName, int taskPriority, string taskDescription, DateTime taskDate, Category category)
+        {
+            TaskName = taskName;
+            TaskPriority = taskPriority;
+            TaskDescription = TaskDescription;
+            TaskDate = taskDate;
+            Category = category;
+        }
     }
 }
