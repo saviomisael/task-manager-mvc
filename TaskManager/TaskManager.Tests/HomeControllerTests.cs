@@ -20,7 +20,7 @@ namespace TaskManager.Tests
             tasks.Add(task1);
 
             Category category2 = new Category("Category 2");
-            Task task1 = new Task("Test 1", 1, "Description test 1", DateTime.Now, category1);
+            Task task2 = new Task("Test 1", 1, "Description test 1", DateTime.Now, category1);
             tasks.Add(task1);
 
             Mock<ITaskRepository> taskRepositoryMock = new Mock<ITaskRepository>();

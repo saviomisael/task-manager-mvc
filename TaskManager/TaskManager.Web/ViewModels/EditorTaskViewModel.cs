@@ -63,21 +63,15 @@ namespace TaskManager.Web.ViewModels
 
         public static Task ToModel(EditorTaskViewModel viewModel)
         {
-            var category = new Category()
+            var category = new Category(viewModel.CategoryName)
             {
-                CategoryID = viewModel.CategoryID,
-                CategoryName = viewModel.CategoryName
+                CategoryID = viewModel.CategoryID
             };
 
-            return new Task()
+            return new Task(viewModel.TaskName, viewModel.TaskPriority, viewModel.TaskDescription, viewModel.TaskDate, category)
             {
                 TaskID = viewModel.TaskID,
-                TaskName = viewModel.TaskName,
-                TaskDescription = viewModel.TaskDescription,
-                TaskDate = viewModel.TaskDate,
-                TaskPriority = viewModel.TaskPriority,
                 CategoryFK = viewModel.CategoryID,
-                Category = category
             };
         }
     }
