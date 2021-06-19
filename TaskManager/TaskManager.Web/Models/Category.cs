@@ -9,5 +9,8 @@
         {
             CategoryName = categoryName;
         }
+
+        public Category()
+        { }
     }
 }
