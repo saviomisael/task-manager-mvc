@@ -14,7 +14,7 @@ namespace TaskManager.Web.Controllers
             _taskRepository = taskRepository;
         }
 
-        public IActionResult Index()
+        public ViewResult Index()
         {
             var allTasks = _taskRepository.ListAllTasks();
 
