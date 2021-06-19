@@ -26,5 +26,11 @@ namespace TaskManager.Tests
             Assert.Equal(task.TaskDescription, result.TaskDescription);
             Assert.Equal(task.TaskDate, result.TaskDate);
         }
+
+        [Fact]
+        public void ToViewModel_ShouldThrowException_WhenModelParameterIsNull()
+        {
+            Assert.Throws<NullReferenceException>(() => EditorTaskViewModel.ToViewModel(null));
+        }
     }
 }
