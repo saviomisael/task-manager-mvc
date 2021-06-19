@@ -12,16 +12,21 @@ namespace TaskManager.Tests
 {
     public class HomeControllerTests
     {
+        private readonly Mock<ITaskRepository> _taskRepositoryMock;
+
+        public HomeControllerTests()
+        {
+            _taskRepositoryMock = new Mock<ITaskRepository>();
+        }
+
         [Fact]
         public void Index_ShouldReturnViewResult()
         {
             IList<Task> tasks = new List<Task>();
 
-            Mock<ITaskRepository> taskRepositoryMock = new Mock<ITaskRepository>();
+            _taskRepositoryMock.Setup(x => x.ListAllTasks()).Returns(tasks);
 
-            taskRepositoryMock.Setup(x => x.ListAllTasks()).Returns(tasks);
-
-            HomeController homeController = new HomeController(taskRepositoryMock.Object);
+            HomeController homeController = new HomeController(_taskRepositoryMock.Object);
 
             var result = homeController.Index();
 
@@ -40,11 +45,9 @@ namespace TaskManager.Tests
             Task task2 = new Task("Test 1", 1, "Description test 1", DateTime.Now, category1);
             tasks.Add(task1);
 
-            Mock<ITaskRepository> taskRepositoryMock = new Mock<ITaskRepository>();
+            _taskRepositoryMock.Setup(x => x.ListAllTasks()).Returns(tasks);
 
-            taskRepositoryMock.Setup(x => x.ListAllTasks()).Returns(tasks);
-
-            HomeController homeController = new HomeController(taskRepositoryMock.Object);
+            HomeController homeController = new HomeController(_taskRepositoryMock.Object);
 
             var result = homeController.Index();
 
@@ -58,10 +61,9 @@ namespace TaskManager.Tests
         public void Index_ShouldReturnEmptyModel()
         {
             IList<Task> tasks = new List<Task>();
-            Mock<ITaskRepository> taskRepositoryMock = new Mock<ITaskRepository>();
-            taskRepositoryMock.Setup(x => x.ListAllTasks()).Returns(tasks);
+            _taskRepositoryMock.Setup(x => x.ListAllTasks()).Returns(tasks);
 
-            HomeController homeController = new HomeController(taskRepositoryMock.Object);
+            HomeController homeController = new HomeController(_taskRepositoryMock.Object);
 
             var result = homeController.Index();
 
