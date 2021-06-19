@@ -21,5 +21,8 @@ namespace TaskManager.Web.Models
             TaskDate = taskDate;
             Category = category;
         }
+
+        public Task()
+        { }
     }
 }
