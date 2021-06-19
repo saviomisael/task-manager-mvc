@@ -15,7 +15,7 @@ namespace TaskManager.Tests
         public void Index_ShouldReturnListTasks()
         {
             IList<Task> tasks = new List<Task>();
-            Category category1 = new Category(1, "Category 1");
+            Category category1 = new Category("Category 1");
             Task task1 = new Task("Test 1", 1, "Description test 1", DateTime.Now, category1);
             tasks.Add(task1);
 
