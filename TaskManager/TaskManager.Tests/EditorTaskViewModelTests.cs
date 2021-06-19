@@ -32,5 +32,37 @@ namespace TaskManager.Tests
         {
             Assert.Throws<NullReferenceException>(() => EditorTaskViewModel.ToViewModel(null));
         }
+
+        [Fact]
+        public void ToModel_ShouldReturnTaskModel()
+        {
+            var viewModel = new EditorTaskViewModel()
+            {
+                CategoryID = 1,
+                CategoryName = "category 1",
+                TaskID = 1,
+                TaskName = "task 1",
+                TaskDescription = "description task 1",
+                TaskPriority = 1,
+                TaskDate = DateTime.Today
+            };
+
+            var result = EditorTaskViewModel.ToModel(viewModel);
+
+            Assert.NotNull(result);
+            Assert.IsType<Task>(result);
+
+            Assert.NotNull(result.Category);
+            Assert.IsType<Category>(result.Category);
+
+            Assert.Equal(viewModel.CategoryID, result.Category.CategoryID);
+            Assert.Equal(viewModel.CategoryName, result.Category.CategoryName);
+
+            Assert.Equal(viewModel.TaskID, result.TaskID);
+            Assert.Equal(viewModel.TaskName, result.TaskName);
+            Assert.Equal(viewModel.TaskDescription, result.TaskDescription);
+            Assert.Equal(viewModel.TaskPriority, result.TaskPriority);
+            Assert.Equal(viewModel.TaskDate, result.TaskDate);
+        }
     }
 }
