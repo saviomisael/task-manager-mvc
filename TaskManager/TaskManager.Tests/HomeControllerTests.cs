@@ -2,6 +2,7 @@
 using Moq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TaskManager.Web.Controllers;
 using TaskManager.Web.Models;
 using TaskManager.Web.Repositories.Contracts;
@@ -34,6 +35,9 @@ namespace TaskManager.Tests
             var viewResult = Assert.IsType<ViewResult>(result);
 
             IEnumerable<Task> modelViewResult = Assert.IsAssignableFrom<IEnumerable<Task>>(viewResult.Model);
+
+            Assert.Equal(tasks.Count, modelViewResult.Count());
+            Assert.Equal(tasks, modelViewResult);
         }
     }
 }
