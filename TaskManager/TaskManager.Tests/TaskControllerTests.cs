@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Moq;
 using System;
 using TaskManager.Web.Controllers;
@@ -40,8 +41,6 @@ namespace TaskManager.Tests
         [Fact]
         public void CreateTask_ShouldCreateTask_WhenViewModelIsValid()
         {
-            var taskController = new TaskController(_taskRepositoryMock.Object);
-
             var viewModel = new EditorTaskViewModel()
             {
                 CategoryID = 1,
@@ -56,7 +55,11 @@ namespace TaskManager.Tests
 
             _taskRepositoryMock.Setup(x => x.CreateTask(model)).Returns(true);
 
+            var taskController = new TaskController(_taskRepositoryMock.Object);
+
             var action = taskController.CreateTask(viewModel);
+
+            Assert.True(taskController.ModelState.IsValid);
 
             var resultAction = Assert.IsType<RedirectToActionResult>(action);
 
