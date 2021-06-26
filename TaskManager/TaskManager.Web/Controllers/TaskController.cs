@@ -16,7 +16,7 @@ namespace TaskManager.Web.Controllers
 
         [Route("criar-tarefa")]
         [HttpGet]
-        public IActionResult CreateTask()
+        public ViewResult CreateTask()
         {
             var viewModel = new EditorTaskViewModel();
 
