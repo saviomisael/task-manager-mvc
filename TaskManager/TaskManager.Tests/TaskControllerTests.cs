@@ -10,12 +10,17 @@ namespace TaskManager.Tests
 {
     public class TaskControllerTests
     {
+        private readonly Mock<ITaskRepository> _taskRepositoryMock;
+
+        public TaskControllerTests()
+        {
+            _taskRepositoryMock = new Mock<ITaskRepository>();
+        }
+
         [Fact]
         public void CreateTask_ShouldReturnViewResult()
         {
-            var taskRepositoryMock = new Mock<ITaskRepository>();
-
-            var taskController = new TaskController(taskRepositoryMock.Object);
+            var taskController = new TaskController(_taskRepositoryMock.Object);
 
             var result = taskController.CreateTask();
 
@@ -25,9 +30,7 @@ namespace TaskManager.Tests
         [Fact]
         public void CreateTask_ShouldReturnModelTypeAsEditorTaskViewModel()
         {
-            var taskRepositoryMock = new Mock<ITaskRepository>();
-
-            var taskController = new TaskController(taskRepositoryMock.Object);
+            var taskController = new TaskController(_taskRepositoryMock.Object);
 
             var result = taskController.CreateTask();
 
