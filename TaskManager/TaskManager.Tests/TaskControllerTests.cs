@@ -36,5 +36,32 @@ namespace TaskManager.Tests
 
             Assert.IsType<EditorTaskViewModel>(result.Model);
         }
+
+        [Fact]
+        public void CreateTask_ShouldCreateTask_WhenViewModelIsValid()
+        {
+            var taskController = new TaskController(_taskRepositoryMock.Object);
+
+            var viewModel = new EditorTaskViewModel()
+            {
+                CategoryID = 1,
+                CategoryName = "Category 1",
+                TaskDate = DateTime.Today,
+                TaskName = "task 1",
+                TaskDescription = "Description task 1",
+                TaskPriority = 1
+            };
+
+            var model = EditorTaskViewModel.ToModel(viewModel);
+
+            _taskRepositoryMock.Setup(x => x.CreateTask(model)).Returns(true);
+
+            var action = taskController.CreateTask(viewModel);
+
+            var resultAction = Assert.IsType<RedirectToActionResult>(action);
+
+            Assert.Equal(nameof(HomeController.Index), resultAction.ActionName);
+            Assert.Equal("Home", resultAction.ControllerName);
+        }
     }
 }
