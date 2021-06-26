@@ -36,8 +36,8 @@ namespace TaskManager.Web.Controllers
                 {
                     return RedirectToAction(nameof(HomeController.Index), "Home");
                 }
-
             }
+
             ModelState.AddModelError("", "Erro ao criar tarefa");
 
             return View(nameof(CreateTask), viewModel);
