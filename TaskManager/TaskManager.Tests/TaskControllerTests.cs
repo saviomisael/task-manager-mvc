@@ -2,6 +2,7 @@
 using Moq;
 using System;
 using TaskManager.Web.Controllers;
+using TaskManager.Web.Models;
 using TaskManager.Web.Repositories.Contracts;
 using TaskManager.Web.ViewModels;
 using Xunit;
@@ -40,8 +41,6 @@ namespace TaskManager.Tests
         [Fact]
         public void CreateTask_ShouldCreateTask_WhenViewModelIsValid()
         {
-            var taskController = new TaskController(_taskRepositoryMock.Object);
-
             var viewModel = new EditorTaskViewModel()
             {
                 CategoryID = 1,
@@ -54,7 +53,9 @@ namespace TaskManager.Tests
 
             var model = EditorTaskViewModel.ToModel(viewModel);
 
-            _taskRepositoryMock.Setup(x => x.CreateTask(model)).Returns(true);
+            _taskRepositoryMock.Setup(x => x.CreateTask(It.IsAny<Task>())).Returns(true);
+
+            var taskController = new TaskController(_taskRepositoryMock.Object);
 
             var action = taskController.CreateTask(viewModel);
 

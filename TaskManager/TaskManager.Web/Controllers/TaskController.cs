@@ -32,7 +32,9 @@ namespace TaskManager.Web.Controllers
             {
                 var model = EditorTaskViewModel.ToModel(viewModel);
 
-                if (_taskRepository.CreateTask(model))
+                var resultCreate = _taskRepository.CreateTask(model);
+
+                if (resultCreate)
                 {
                     return RedirectToAction(nameof(HomeController.Index), "Home");
                 }
