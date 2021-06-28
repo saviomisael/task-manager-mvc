@@ -1,8 +1,6 @@
 # task-manager-mvc
 
-## This project shows some things I've been learning, as Repository pattern and unit tests.
-
-<br>
+### This project shows some things I've been learning, as Repository pattern and unit tests.
 
 # Table of contents
 - [Screenshots](#screenshots)
@@ -23,13 +21,11 @@
 - ### Edit task page
 ![](screenshots/edittask.png)
 
-- ### Modal delete page
+- ### Modal delete task
 ![](screenshots/modalhome.png)
 
 - ### Delete task page
 ![](screenshots/deletetask.png)
-
-<br>
 
 # Technologies
 ### Technologies used in this project
