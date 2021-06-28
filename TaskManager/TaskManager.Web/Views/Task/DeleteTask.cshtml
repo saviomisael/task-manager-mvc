@@ -24,7 +24,7 @@
             {
                 <img class="delete-success-img" src="@Url.Content("~/img/delete-task-success.svg")" alt="Deletado com sucesso" />
             }
-            <p class="result-message">@ViewData["resultMessage"]</p>
+            <p class="result-message">@TempData["resultMessage"]</p>
             <p class="redirect-message">Você será redirecionado em 5 segundos. Caso não seja redirecionado <a asp-action="Index" asp-controller="Home">clique aqui</a>.</p>
         }
     </main>
