@@ -51,8 +51,6 @@ namespace TaskManager.Tests
                 TaskPriority = 1
             };
 
-            var model = EditorTaskViewModel.ToModel(viewModel);
-
             _taskRepositoryMock.Setup(x => x.CreateTask(It.IsAny<Task>())).Returns(true);
 
             var taskController = new TaskController(_taskRepositoryMock.Object);
